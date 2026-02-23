@@ -73,4 +73,14 @@ mainContainer.addEventListener('click', function (event) {
 
 })
 
+function renderInterview() {
+    filteredSection.innerHTML = ''
+
+    for (let interview of interviewCount) {
+        console.log(interview);
+
+        let div = document.createElement('div')
+        
+    }
+}
 
