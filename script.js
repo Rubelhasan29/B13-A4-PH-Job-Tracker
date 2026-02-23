@@ -35,10 +35,10 @@ function filtering(id) {
     const selected = document.getElementById(id);
     selected.classList.add('bg-blue-500', 'text-white');
 
-    if(id == 'interview-filter-btn'){
+    if (id == 'interview-filter-btn') {
         allCardSection.classList.add('hidden')
         filteredSection.classList.remove('hidden')
-    }else if (id == 'all-filter-btn'){
+    } else if (id == 'all-filter-btn') {
         allCardSection.classList.remove('hidden')
         filteredSection.classList.add('hidden')
     }
@@ -58,24 +58,23 @@ mainContainer.addEventListener('click', function (event) {
         const workPosition = parentNode.querySelector('.workPosition').innerText;
         const jobPosition = parentNode.querySelector('.jobPosition').innerText;
         const jobDetails = parentNode.querySelector('.jobDetails').innerText;
-        const status = parentNode.querySelector('#status').innerText;
+        const status = parentNode.querySelector('.status').innerText;
         const jobDescription = parentNode.querySelector('.jobDescription').innerText;
+        
 
+        
+        parentNode.querySelector('.status').innerText = "INTERVIEW";
 
         const cardInfo = {
             workPosition,
             jobPosition,
             jobDetails,
-            status,
+            status : 'INTERVIEW',
             jobDescription
         }
 
         const workPositionExist = interviewCount.find(item => item.workPosition == cardInfo.workPosition);
-        
-        parentNode.querySelector('#status').classList.remove('bg-blue-100')
-        parentNode.querySelector('#status').innerHTML = `
-            <p id="status" class="bg-green-200 opacity-80 inline px-[20px] py-3 font-semibold text-black">INTERVIEW</p>
-        `
+
         if (!workPositionExist) {
             interviewCount.push(cardInfo);
         }
@@ -97,21 +96,17 @@ function renderInterview() {
                         <div class="card left space-y-6">
 
                     <div class="left-top space-y-4">
-                        <p class="workPosition text-2xl font-bold opacity-80">Mobile First Corp</p>
-                        <p class="jobPosition opacity-60">React Native Developer</p>
-                        <p class="jobDetails opacity-60">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="workPosition text-2xl font-bold opacity-80">${interview.workPosition}</p>
+                        <p class="jobPosition opacity-60">${interview.jobPosition}</p>
+                        <p class="jobDetails opacity-60">${interview.jobDetails}</p>
                     </div>
 
 
                     <div>
-                        <p id="status" class="bg-blue-100 opacity-80 inline px-[14px] py-3 font-semibold text-black">NOT
-                            APPLIED</p>
+                        <p id="status" class="bg-blue-100 opacity-80 inline px-[14px] py-3 font-semibold text-black">${interview.status}</p>
                     </div>
                     <div>
-                        <p class="jobDescription opacity-80 ">Build cross-platform mobile applications using React Native. Work on
-                            products
-                            used by millions of
-                            users worldwide.</p>
+                        <p class="jobDescription opacity-80 ">${interview.jobDescription}</p>
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-6">
