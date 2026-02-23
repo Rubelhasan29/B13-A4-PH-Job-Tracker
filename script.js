@@ -1,6 +1,7 @@
 let interviewCount = [];
 let rejectedCount = [];
 
+
 let allFilterBtn = document.getElementById('all-filter-btn')
 let interviewFilterBtn = document.getElementById('interview-filter-btn')
 let rejectedFilterBtn = document.getElementById('rejected-filter-btn')
@@ -16,7 +17,7 @@ let rejected = document.getElementById('rejected-count')
 let allCardSection = document.getElementById('allCard');
 
 
-function calculate (){
+function calculate() {
 
     total.innerText = allCardSection.children.length;
     interview.innerText = interviewCount.length;
@@ -25,7 +26,7 @@ function calculate (){
 calculate();
 
 
-function filtering (id){
+function filtering(id) {
     allFilterBtn.classList.remove('bg-blue-500', 'bg-white', 'text-white')
     interviewFilterBtn.classList.remove('bg-blue-500', 'bg-white', 'text-white')
     rejectedFilterBtn.classList.remove('bg-blue-500', 'bg-white', 'text-white')
@@ -38,13 +39,22 @@ function filtering (id){
 let mainContainer = document.querySelector('main')
 
 
-mainContainer.addEventListener('click', function(event){
-    console.log(event.target);
+mainContainer.addEventListener('click', function (event) {
+
+
+    const parentNode = event.target.parentNode.parentNode;
+
+    const workPosition = parentNode.querySelector('.workPosition').innerText;
+    const jobPosition = parentNode.querySelector('.jobPosition').innerText;
+    const jobDetails = parentNode.querySelector('.jobDetails').innerText;
+    const status = parentNode.querySelector('#status').innerText;
+    const jobDescription = parentNode.querySelector('.jobDescription').innerText;
+
+
+
+
+
 })
 
 
 
-
-
-let deleteBtn = document.getElementById('delete-btn');
-let card = document.getElementById('card')
