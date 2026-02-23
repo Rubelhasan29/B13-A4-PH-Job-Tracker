@@ -38,23 +38,39 @@ function filtering(id) {
 
 let mainContainer = document.querySelector('main')
 
+let filteredSection = document.getElementById('filteredSection')
+
 
 mainContainer.addEventListener('click', function (event) {
 
 
-    const parentNode = event.target.parentNode.parentNode;
+    if (event.target.classList.contains('interview-btn')) {
+        const parentNode = event.target.parentNode.parentNode;
 
-    const workPosition = parentNode.querySelector('.workPosition').innerText;
-    const jobPosition = parentNode.querySelector('.jobPosition').innerText;
-    const jobDetails = parentNode.querySelector('.jobDetails').innerText;
-    const status = parentNode.querySelector('#status').innerText;
-    const jobDescription = parentNode.querySelector('.jobDescription').innerText;
+        const workPosition = parentNode.querySelector('.workPosition').innerText;
+        const jobPosition = parentNode.querySelector('.jobPosition').innerText;
+        const jobDetails = parentNode.querySelector('.jobDetails').innerText;
+        const status = parentNode.querySelector('#status').innerText;
+        const jobDescription = parentNode.querySelector('.jobDescription').innerText;
 
 
+        const cardInfo = {
+            workPosition,
+            jobPosition,
+            jobDetails,
+            status,
+            jobDescription
+        }
 
+        const workPositionExist = interviewCount.find(item => item.workPosition == cardInfo.workPosition);
 
+        if (!workPositionExist) {
+            interviewCount.push(cardInfo);
+        }
+
+        renderInterview()
+    }
 
 })
-
 
 
