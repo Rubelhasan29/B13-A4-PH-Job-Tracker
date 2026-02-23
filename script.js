@@ -34,6 +34,14 @@ function filtering(id) {
 
     const selected = document.getElementById(id);
     selected.classList.add('bg-blue-500', 'text-white');
+
+    if(id == 'interview-filter-btn'){
+        allCardSection.classList.add('hidden')
+        filteredSection.classList.remove('hidden')
+    }else if (id == 'all-filter-btn'){
+        allCardSection.classList.remove('hidden')
+        filteredSection.classList.add('hidden')
+    }
 }
 
 let mainContainer = document.querySelector('main')
@@ -63,7 +71,11 @@ mainContainer.addEventListener('click', function (event) {
         }
 
         const workPositionExist = interviewCount.find(item => item.workPosition == cardInfo.workPosition);
-
+        
+        parentNode.querySelector('#status').classList.remove('bg-blue-100')
+        parentNode.querySelector('#status').innerHTML = `
+            <p id="status" class="bg-green-200 opacity-80 inline px-[20px] py-3 font-semibold text-black">INTERVIEW</p>
+        `
         if (!workPositionExist) {
             interviewCount.push(cardInfo);
         }
@@ -116,6 +128,7 @@ function renderInterview() {
                             class="fa-solid fa-trash"></i></button>
                 </div>
         `
+        filteredSection.appendChild(div);
     }
 }
 
