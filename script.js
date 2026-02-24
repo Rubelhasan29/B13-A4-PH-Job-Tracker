@@ -2,6 +2,7 @@ let interviewCount = [];
 let rejectedCount = [];
 let currentStatus = 'all'
 
+
 let allFilterBtn = document.getElementById('all-filter-btn')
 let interviewFilterBtn = document.getElementById('interview-filter-btn')
 let rejectedFilterBtn = document.getElementById('rejected-filter-btn')
@@ -25,7 +26,7 @@ let filteredSection = document.getElementById('filteredSection')
 
 function calculate() {
 
-    
+
     interview.innerText = interviewCount.length;
     rejected.innerText = rejectedCount.length;
 }
@@ -50,6 +51,8 @@ function filtering(id) {
     } else if (id == 'all-filter-btn') {
         allCardSection.classList.remove('hidden');
         filteredSection.classList.add('hidden');
+        checkEmpty(allCardSection);
+
     } else if (id == 'rejected-filter-btn') {
         allCardSection.classList.add('hidden');
         filteredSection.classList.remove('hidden');
@@ -89,6 +92,8 @@ mainContainer.addEventListener('click', function (event) {
         }
 
         rejectedCount = rejectedCount.filter(item => item.workPosition != cardInfo.workPosition);
+
+        updateAllSectionStatus(workPosition, 'INTERVIEW');
 
         if (currentStatus == 'rejected-filter-btn') {
             renderRejected()
@@ -131,7 +136,9 @@ mainContainer.addEventListener('click', function (event) {
             rejectedCount.push(cardInfo);
         }
 
-        interviewCount = interviewCount.filter(item => item.workPosition != cardInfo.workPosition)
+        interviewCount = interviewCount.filter(item => item.workPosition != cardInfo.workPosition);
+
+        updateAllSectionStatus(workPosition, 'REJECTED');
 
 
         if (currentStatus == 'interview-filter-btn') {
@@ -183,6 +190,8 @@ function renderInterview() {
         `
         filteredSection.appendChild(div);
     }
+    checkEmpty(filteredSection);
+
 }
 
 
@@ -227,26 +236,59 @@ function renderRejected() {
         `
         filteredSection.appendChild(div);
     }
+
+    checkEmpty(filteredSection);
 }
 
 
 function deleteApplication(id) {
-const card = document.getElementById(id);
-card.remove(); 
-
-const cards = document.getElementById('allCard')
-console.log(cards);
-
-total.innerText = cards.children.length;
-
-const jobCount = document.getElementById('jobs-count')
-jobCount.innerText = cards.children.length;
+    const card = document.getElementById(id);
+    const workPosition = card.querySelector('.workPosition');
+    card.remove();
 
 
- if(cards.children.length === 0){
-    const empty =  document.getElementById('empty')
-    empty.classList.remove('hidden');
- }
+    rejectedCount = rejectedCount.filter(item => item.workPosition != cardInfo.workPosition);
+
+    interviewCount = interviewCount.filter(item => item.workPosition != cardInfo.workPosition);
+
+    calculate();
+
+    const cards = document.getElementById('allCard')
+    console.log(cards);
+
+    total.innerText = cards.children.length;
+
+    const jobCount = document.getElementById('jobs-count')
+    jobCount.innerText = cards.children.length;
+
+
+    checkEmpty(allCardSection);
+
+
+}
+
+function updateAllSectionStatus(workPosition, newStatus) {
+
+    const cards = document.getElementById('allCard').children;
+
+    for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].querySelector('.workPosition').innerText;
+
+        if (title === workPosition) {
+            cards[i].querySelector('.status').innerText = newStatus;
+        }
+    }
+
+
 }
 
 
+function checkEmpty(section) {
+    const empty = document.getElementById('empty');
+
+    if (section.children.length === 0) {
+        empty.classList.remove('hidden');
+    } else {
+        empty.classList.add('hidden');
+    }
+}
