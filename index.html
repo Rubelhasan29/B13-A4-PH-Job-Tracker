@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <header class="w-[70%] mx-auto sticky top-0 bg-white z-50">
+    <header class="w-[70%] mx-auto bg-white z-50">
         <h2 class="text-4xl font-bold mt-16 mb-5">Job Application Tracker</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div class=" shadow-sm p-4 rounded-md bg-white border border-gray-200">
@@ -46,7 +46,7 @@
             <p class="text-2xl font-bold">Available Jobs</p>
             <p class="opacity-60"><span id="jobs-count">8</span> Jobs</p>
         </div>
-        <div class="sm: flex gap-5">
+        <div class="flex gap-2">
             <button onclick="filtering('all-filter-btn')"
                 class="bg-blue-500  text-white border border-gray-300 shadow-sm py-3 px-11 rounded-md text-xl"
                 id="all-filter-btn">All</button>
@@ -65,7 +65,7 @@
         </section>
 
         <section id="empty"
-            class="empty-section p-45 shadow-md bg-white border border-gray-200 rounded-lg flex flex-col items-center border mt-10 hidden">
+            class="empty-section p-3 shadow-md bg-white border border-gray-200 rounded-lg flex flex-col items-center border mt-10 hidden sm:p-2 lg:p-45">
             <img class="w-[100px]" src="./img/assignment_7959593 1.png" alt="A image of empty section">
             <h1 class="text-4xl font-bold m-2">No jobs available</h1 class="text-4xl font-bold">
             <p class="font-semibold">Check back soon for new job opportunities </p>
