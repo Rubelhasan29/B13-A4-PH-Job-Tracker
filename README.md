@@ -4,7 +4,7 @@ Ans :-
 
 (A) getElementById("ID")
 
-. Selects one elements by its unique ID
+. Selects one element by its unique ID
 . Returns a single element, not a list 
 . Fastest method
 . Select ID only
@@ -19,7 +19,7 @@ Ans :-
 
 (C) querySelector()
 
-. Select the first elements that matches any css selector
+. Select the first element that matches any css selector
 . can use ID, Class, tag or complex selector
 
 
