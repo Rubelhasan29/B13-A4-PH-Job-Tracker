@@ -243,15 +243,8 @@ function renderRejected() {
 
 function deleteApplication(id) {
     const card = document.getElementById(id);
-    const workPosition = card.querySelector('.workPosition');
+    
     card.remove();
-
-
-    rejectedCount = rejectedCount.filter(item => item.workPosition != cardInfo.workPosition);
-
-    interviewCount = interviewCount.filter(item => item.workPosition != cardInfo.workPosition);
-
-    calculate();
 
     const cards = document.getElementById('allCard')
     console.log(cards);
