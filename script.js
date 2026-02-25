@@ -24,15 +24,25 @@ function changeTab(tab) {
 
     const sections = [allContainer, interviewContainer, rejectedContainer];
 
-    for (const section  of sections) {
+    for (const section of sections) {
         section.classList.add('hidden');
     }
-    if(tab === 'all'){
+    if (tab === 'all') {
         allContainer.classList.remove('hidden');
-    }else  if(tab === 'interview'){
+    } else if (tab === 'interview') {
         interviewContainer.classList.remove('hidden');
-    }else{
+    } else {
         rejectedContainer.classList.remove('hidden');
     }
 }
+
+
+// count update
+const totalCount = document.getElementById('total-count');
+const interviewCount = document.getElementById('interview-count');
+const rejectedCount = document.getElementById('rejected-count');
+
+totalCount.innerText = allContainer.children.length
+
 changeTab(currentTab);
+

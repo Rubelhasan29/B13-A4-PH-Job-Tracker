@@ -27,15 +27,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div class=" shadow-sm p-4 rounded-md bg-white border border-gray-200">
                 <p class="text-2xl">Total</p>
-                <p class="text-4xl font-bold">0</p>
+                <p id="total-count" class="text-4xl font-bold">0</p>
             </div>
             <div class=" shadow-sm p-4 rounded-md bg-white border border-gray-200">
                 <p class="text-2xl ">Interview</p>
-                <p class="text-4xl font-bold text-green-500">0</p>
+                <p id="interview-count" class="text-4xl font-bold text-green-500">0</p>
             </div>
             <div class=" shadow-sm p-4 rounded-md bg-white border border-gray-200">
                 <p class="text-2xl ">Rejected</p>
-                <p class="text-4xl font-bold  text-red-500">0</p>
+                <p id="rejected-count" class="text-4xl font-bold  text-red-500">0</p>
             </div>
         </div>
         <hr class="mt-8 mb-8 text-gray-200 ">
@@ -48,12 +48,9 @@
         </div>
 
         <div class="flex gap-2">
-            <button id="tab-all" onclick="changeTab('all')"
-                class="">All</button>
-            <button id="tab-interview" onclick="changeTab('interview')"
-                class="">Interview</button>
-            <button id="tab-rejected" onclick="changeTab('rejected')"
-                class="">Rejected</button>
+            <button id="tab-all" onclick="changeTab('all')" class="">All</button>
+            <button id="tab-interview" onclick="changeTab('interview')" class="">Interview</button>
+            <button id="tab-rejected" onclick="changeTab('rejected')" class="">Rejected</button>
         </div>
 
 
@@ -93,9 +90,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-1')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -135,9 +130,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-2')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -177,9 +170,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-3')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -220,9 +211,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-4')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -263,9 +252,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-5')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -307,9 +294,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-6')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -350,9 +335,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-7')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -395,9 +378,7 @@
                     </div>
 
                     <div class="card-right text-center">
-                        <button onclick="deleteApplication('card-8')"
-                            class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i
-                                class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn border-2 border-gray-200 p-[10px] px-[11px] rounded-full text-[13px]"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
 
@@ -406,7 +387,7 @@
             <section id="interview-container" class="hidden">
                 interview section
             </section>
-            
+
             <section id="rejected-container" class="hidden">
                 Rejected section
             </section>
@@ -415,7 +396,7 @@
 
         <section id="empty"
             class="hidden empty-section p-3 shadow-md bg-white border border-gray-200 rounded-lg flex flex-col items-center border mt-10 sm:p-2 lg:p-45">
-            <img class="w-[100px]" src="./jobs.png" alt="A image of empty section">
+            <img class="w-[100px]" src="./img/assignment_7959593 1.png" alt="A image of empty section">
             <h1 class="text-4xl font-bold m-2">No jobs available</h1 class="text-4xl font-bold">
             <p class="font-semibold">Check back soon for new job opportunities </p>
         </section>
