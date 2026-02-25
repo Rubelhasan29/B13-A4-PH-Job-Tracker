@@ -62,7 +62,7 @@ const totalCount = document.getElementById('total-count');
 const interviewCount = document.getElementById('interview-count');
 const rejectedCount = document.getElementById('rejected-count');
 const availableCount =document.getElementById('available'); 
- 
+
 
 changeTab(currentTab);
 
